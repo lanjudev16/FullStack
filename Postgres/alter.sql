@@ -6,7 +6,7 @@ CREATE TABLE person2(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 --Drop table
-DROP TABLE person4;
+DROP TABLE student;
 --add collumn
 ALTER Table person3
 ADD COLUMN email VARCHAR(25) DEFAULT('default@gmail.com') NOT NULL;
@@ -23,7 +23,7 @@ DROP COLUMN email;
 ALTER Table person3
 RENAME COLUMN user_name to UserName;
 --Retrive data
-SELECT * FROM person3;
+SELECT * FROM person2;
  ALTER TABLE person3
     ALTER COLUMN UserName type VARCHAR(50) ;
  ALTER Table person3
@@ -38,7 +38,7 @@ DROP constraint person3_pkey;
 ALTER TABLE person3 ADD CONSTRAINT person3_pkey PRIMARY KEY (id);
 --Truncate
 TRUNCATE TABLE person3;
-t
---Delete data
-DELETE FROM person3
-WHERE id=6;
+
+--test
+ALTER TABLE student
+RENAME COLUMN blod_group to blood_group;
