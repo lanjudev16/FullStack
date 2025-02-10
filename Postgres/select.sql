@@ -46,4 +46,36 @@ WHERE (country='USA' OR country='Australia') AND age=20;
 SELECT * FROM student
 WHERE (country='USA' OR country='UK') AND (grade='A+' OR grade='B');
 SELECT * FROM student
-WHERE age<>20  
+WHERE age<>20  ;
+/*
+Scaller function
+lowercase
+uppercase
+concate
+length
+*/
+--Uppercase convert when get the data
+SELECT upper(first_name) as "Full Name"  FROM student;
+--concat 
+SELECT concat(first_name,' ',last_name) as "Full Name" FROM student;
+--length
+SELECT length(first_name) as "Name Length",first_name FROM student;
+
+/*
+aggregate function
+avg
+sum
+max
+min
+count
+*/
+--student age average
+SELECT avg(age) as "Student Average Age" FROM student;
+--student max age
+SELECT max(age) FROM student;
+--student min age
+SELECT min(age) FROM student;
+--count
+SELECT count(*) FROM student;
+--find max length first_name
+SELECT max(length(first_name)) FROM student;
