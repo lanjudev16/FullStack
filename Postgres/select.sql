@@ -7,13 +7,13 @@ CREATE Table student(
     course VARCHAR(50),
     email VARCHAR(50),
     dob DATE,
-    blod_group VARCHAR(10),
+    blood_group VARCHAR(10),
     country VARCHAR(250)
 );
 --Insert data
 INSERT INTO student (first_name, last_name, age, grade, course, email, dob, blood_group, country) 
 VALUES
-('John', 'Doe', 20, 'A+', 'Computer Science', 'john.doe@example.com', '2004-04-15', 'O+', 'USA'),
+('John', 'Doe', 20, 'A+', 'Computer Science',NULL, '2004-04-15', 'O+', 'USA'),
 ('Jane', 'Smith', 22, 'B', 'Electrical Engineering', 'jane.smith@example.com', '2002-03-10', 'A-', 'UK'),
 ('David', 'Brown', 21, 'A', 'Mechanical Engineering', 'david.brown@example.com', '2003-08-22', 'B+', 'Canada'),
 ('Emily', 'Taylor', 19, 'B+', 'Biology', 'emily.taylor@example.com', '2005-02-12', 'O-', 'Australia'),
@@ -79,3 +79,31 @@ SELECT min(age) FROM student;
 SELECT count(*) FROM student;
 --find max length first_name
 SELECT max(length(first_name)) FROM student;
+--not
+SELECT country FROM student
+WHERE NOT country='India';
+--null compare
+SELECT * FROM student
+WHERE email IS NULL;
+---
+SELECT * FROM student;
+--null value replace default value
+select COALESCE(email,'Email is not provided') as "Email" FROM student;
+--filter specific data by in
+SELECT country FROM student WHERE country  IN('USA');
+SELECT country FROM student WHERE country NOT IN('USA');
+SELECT age FROM student WHERE age BETWEEN 19 and 20 ORDER BY age ASC;
+--like operator case sensetive
+SELECT first_name FROM student WHERE first_name LIKE 'D%';
+SELECT first_name FROM student WHERE first_name LIKE '___a';
+--ilike case insensetive
+SELECT first_name FROM student WHERE first_name ILIKE '%d';
+--Limit
+SELECT * FROM student ORDER BY id ASC LIMIT 4;
+--Offset->mane prothom theke kotogula bad seita bujai
+SELECT * FROM student ORDER BY id ASC LIMIT 5 OFFSET 5*1;
+SELECT * from student
+WHERE email is NULL;
+--delete
+DELETE FROM student;
+DROP Table student;
