@@ -7,3 +7,4 @@ CREATE Table post (
     title TEXT,
     user_id INTEGER REFERENCES "user"(id)
 );
+INSERT INTO  "user"(username) VALUES('Md Lanju Mia','Ayesha','Gazi Siddqur Rahman'); 
